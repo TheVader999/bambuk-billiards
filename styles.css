@@ -545,6 +545,29 @@ html { scroll-snap-type: y mandatory; }
   .club-content section.is-in-view > .container { animation: none; }
 }
 
+/* Удобное управление и компоновка на небольших экранах. */
+.instruction-touch { display: none; }
+@media (hover: none), (pointer: coarse) {
+  .instruction-mouse { display: none; }
+  .instruction-touch { display: inline; }
+}
+@media (max-width: 700px) {
+  .club-nav { position: static; flex-wrap: wrap; justify-content: flex-start; gap: 2px 18px; overflow: visible; white-space: normal; }
+  .club-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+  .club-nav .nav-call { margin: 2px 0; padding: 8px 16px; }
+  .club-content section { min-height: 0; padding: 64px 0; }
+  .club-content .about-section { padding-top: 0; }
+  .about-section .about-layout { margin-top: 48px; }
+  .club-content h2 { font-size: clamp(38px, 10vw, 60px); overflow-wrap: anywhere; }
+  .club-content h3 { font-size: clamp(25px, 7vw, 36px); }
+  .club-content .section-label { margin-bottom: 18px; }
+  .club-facts { margin-top: 48px; }
+  .section-heading { margin-bottom: 38px; }
+  .game-list article { grid-template-columns: 54px minmax(0, 1fr); gap: 14px; }
+  .game-ball { width: 52px; }
+  .hero-instruction { padding: 0 20px; bottom: max(24px, env(safe-area-inset-bottom)); }
+}
+
 /* Переходы колесом управляются скриптом; заголовки появляются повторно. */
 .club-content section.is-in-view > .container { animation: none; }
 .club-content h2.heading-reveal {

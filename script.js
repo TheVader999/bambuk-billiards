@@ -33,11 +33,12 @@ function showInformation() {
   const root = document.documentElement;
   const previousBehavior = root.style.scrollBehavior;
   root.style.scrollBehavior = 'auto';
+  // На телефонах прокрутка заблокированной страницы может не сработать.
+  root.classList.remove('intro-locked');
   window.scrollTo({ top: destination.getBoundingClientRect().top + window.scrollY, behavior: 'instant' });
   root.style.scrollBehavior = previousBehavior;
   curtain.classList.add('is-leaving');
   window.setTimeout(() => {
-    root.classList.remove('intro-locked');
     lockedContent.forEach((element) => { element.inert = false; });
     // Скрываем заставку до сброса классов, чтобы она не анимировалась обратно вниз.
     curtain.hidden = true;
@@ -82,12 +83,12 @@ function goToClub(ball) {
 }
 
 for (const ball of elements) {
-  ball.addEventListener('pointerdown', (event) => {
-    if (event.pointerType !== 'mouse' || !((event.button === 0 && event.buttons === 1) || (event.button === 2 && event.buttons === 2))) return;
+  // click работает и с касанием, и с мышью, и с клавиатурой.
+  ball.addEventListener('click', () => goToClub(ball));
+  ball.addEventListener('contextmenu', (event) => {
     event.preventDefault();
     goToClub(ball);
   });
-  ball.addEventListener('contextmenu', (event) => event.preventDefault());
 }
 
 // Колесо не запускает действия и не прокручивает страницу, пока открыта заставка.

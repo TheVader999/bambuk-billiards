@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Бильярдный клуб «Бамбук» в Тольятти: русский бильярд, американский пул и школа бильярда.">
+  <title>Бамбук — бильярдный клуб в Тольятти</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <a class="brand" href="#top" aria-label="Бамбук — на главную">
+        <svg class="brand-logo" viewBox="80 46 270 247" aria-hidden="true" focusable="false">
+          <defs><filter id="logo-lime" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  4 0 0 0 -1.2" result="logo-mask"/><feFlood flood-color="#d5f47b"/><feComposite in2="logo-mask" operator="in"/></filter></defs>
+          <image href="assets/bambuk-original-logo.png" width="426" height="412" filter="url(#logo-lime)"/>
+        </svg>
+        <span class="brand-name">БАМБУК<small>БИЛЬЯРДНЫЙ КЛУБ</small></span>
+      </a>
+
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-accents" aria-hidden="true">
+        <svg class="hero-bamboo hero-bamboo-left" viewBox="0 0 230 420" fill="none">
+          <path class="stem" d="M31 410 C57 310 86 186 142 24 M44 350 l23 4 M60 286 l24 5 M77 220 l23 7 M98 150 l20 8 M123 80 l18 8"/>
+          <path class="leaf" d="M76 226 C37 208 23 175 20 145 C48 163 72 187 76 226Z M96 155 C126 124 157 114 192 116 C166 143 132 154 96 155Z M45 353 C16 333 9 304 12 276 C36 296 46 323 45 353Z M123 82 C148 58 174 51 206 53 C183 75 153 84 123 82Z"/>
+        </svg>
+        <svg class="hero-bamboo hero-bamboo-right" viewBox="0 0 230 420" fill="none">
+          <path class="stem" d="M31 410 C57 310 86 186 142 24 M44 350 l23 4 M60 286 l24 5 M77 220 l23 7 M98 150 l20 8 M123 80 l18 8"/>
+          <path class="leaf" d="M76 226 C37 208 23 175 20 145 C48 163 72 187 76 226Z M96 155 C126 124 157 114 192 116 C166 143 132 154 96 155Z M45 353 C16 333 9 304 12 276 C36 296 46 323 45 353Z M123 82 C148 58 174 51 206 53 C183 75 153 84 123 82Z"/>
+        </svg>
+        <span class="hero-ring hero-ring-one"></span><span class="hero-ring hero-ring-two"></span>
+        <span class="hero-dots hero-dots-one"></span><span class="hero-dots hero-dots-two"></span>
+      </div>
+      <div class="hero-disc" aria-hidden="true">
+        <svg viewBox="0 0 600 600" class="disc-art">
+          <defs><path id="disc-text-path" d="M 300,300 m -257,0 a 257,257 0 1,1 514,0 a 257,257 0 1,1 -514,0"/></defs>
+          <circle cx="300" cy="300" r="300" fill="#203f2d"/>
+          <text fill="#d5f47b" font-family="Arial Narrow, Roboto Condensed, Arial, sans-serif" font-weight="900" font-size="45" letter-spacing="3"><textPath href="#disc-text-path" textLength="1614" lengthAdjust="spacing">BAMBUK ✳ BAMBUK ✳ BAMBUK ✳ BAMBUK ✳ BAMBUK ✳ BAMBUK ✳ </textPath></text>
+        </svg>
+      </div>
+      <div class="hero-content">
+        <h1 id="hero-title" class="visually-hidden">Бильярдный клуб Бамбук</h1>
+        <p class="hero-kicker">Бильярдный клуб в Тольятти</p>
+        <p class="hero-subtitle">Живи в стиле Бамбук</p>
+      </div>
+      <div class="ball-stage" aria-label="Выберите шар, чтобы узнать больше о клубе">
+        <span class="cue-stick" aria-hidden="true"></span>
+        <span class="impact-burst" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — зелёный шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-green.png" alt="" draggable="false"></span></span></button>
+        <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — белый шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-white.png" alt="" draggable="false"></span></span></button>
+        <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — чёрный шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-black.png" alt="" draggable="false"></span></span></button>
+        <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — белый шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-white.png" alt="" draggable="false"></span></span></button>
+      </div>
+      <p class="hero-instruction">Нажмите на шар или прокрутите вниз</p>
+    </section>
+    <div class="club-content">
+      <section id="about" class="about-section"><nav class="club-nav" aria-label="Разделы сайта">
+        <a href="#about">О клубе</a><a href="#games">Бильярд</a><a href="#photos">Фото</a><a href="#school">Школа</a><a href="#prices">Стоимость</a><a href="#contacts">Контакты</a><a class="nav-call" href="tel:+78482378537">Позвонить</a>
+      </nav>
+      <div class="container about-layout">
+        <div><p class="section-label">Бильярдный клуб в Тольятти</p><h2>Время для<br>хорошей игры.</h2></div>
+        <div class="about-copy"><p>«Бамбук» — место, где можно собраться с друзьями, сыграть партию и провести время в уютной обстановке. Ждём и опытных игроков, и тех, кто только начинает.</p><a class="text-link" href="#games">Узнать об игре <span aria-hidden="true">↗</span></a></div>
+      </div><div class="container club-facts"><div><strong>9</strong><span>столов для русского<br>бильярда</span></div><div><strong>2</strong><span>стола для<br>американского пула</span></div><p>Количество столов указано по данным сайта клуба. Перед визитом уточните детали по телефону.</p></div></section>
+      <section id="games" class="games-section"><div class="container"><div class="section-heading"><p class="section-label">Выбирайте свою игру</p><h2>Бильярд для всех</h2></div>
+        <div class="game-list"><article><span class="game-ball game-ball-light" aria-hidden="true"></span><div><h3>Русский бильярд</h3><p>Классическая игра для неспешных встреч и серьёзных партий. На сайте клуба указаны профессиональные столы и оборудование.</p></div></article>
+        <article><span class="game-ball game-ball-dark" aria-hidden="true">8</span><div><h3>Американский пул</h3><p>Собирайте компанию и выбирайте игру по душе. В клубе также есть столы для американского пула.</p></div></article></div>
+        <a class="button button-dark" href="tel:+78482378537">Позвонить и заказать стол</a></div></section>
+      <section id="photos" class="photos-section"><div class="container"><div class="photos-heading"><div><p class="section-label">Атмосфера клуба</p><h2>Внутри «Бамбука»</h2></div><p>Фотографии со страницы клуба в Яндексе. Первое и третье изображения улучшены с помощью ИИ, детали могут отличаться от оригинала. Интерьер мог измениться.</p></div><div class="club-gallery"><img src="assets/club-tables-enhanced.png" alt="Бильярдные столы в зале клуба" loading="lazy"><img src="assets/club-hall.webp" alt="Бильярдный зал клуба" loading="lazy"><img src="assets/club-room-enhanced.png" alt="Бильярдная комната с зоной отдыха" loading="lazy"></div></div></section>
+      <section id="school" class="school-section"><div class="container school-layout"><div><p class="section-label">Школа бильярда</p><h2>Научиться<br>играть красиво.</h2><p>На сайте клуба было опубликовано приглашение на уроки бильярда для тех, кто хочет освоить игру и улучшить свои навыки.</p><a class="button button-light" href="tel:+79272160713">Позвонить о занятиях</a><p class="school-contact">Анатолий Геннадиевич · 8 (927) 216-07-13</p></div>
+        <div class="schedule"><p class="schedule-title">Расписание из объявления</p><div><span>Понедельник</span><strong>16:00–18:00</strong></div><div><span>Среда</span><strong>16:00–18:00</strong></div><div><span>Воскресенье</span><strong>15:00–18:00</strong></div><p>В объявлении также указаны две бесплатные недели. Дата объявления без года — актуальность расписания и предложения уточняйте по телефону.</p></div></div></section>
+      <section id="prices" class="price-section"><div class="container price-layout"><div><p class="section-label">Стоимость</p><h2>Планируете<br>партию?</h2></div><div><p class="old-price"><strong>250 ₽</strong><span>за час игры</span></p><p>Такая цена указана на старом сайте клуба. Актуальную стоимость и условия бронирования уточняйте по телефону.</p><a class="button button-dark" href="tel:+78482378537">Уточнить стоимость</a></div></div></section>
+      <section class="history-section"><div class="container history-layout"><div><p class="section-label">Немного истории</p><h2>Игра с историей</h2></div><div><p>Бильярд объединяет игры, в которых шары движутся по столу от удара кия. На сайте клуба рассказывают, что его родиной считают Индию или Китай.</p><details><summary>Подробнее о бильярде</summary><p>История игры насчитывает несколько веков. По сведениям старого сайта, один из первых известных столов был изготовлен во Франции в 1469 году для Людовика XI. В России бильярд получил распространение после Петра I, а к рубежу XVIII и XIX веков вошёл в программу воспитания дворян.</p></details></div></div></section>
+      <section id="contacts" class="contact-section"><div class="container contact-layout"><div><p class="section-label">До встречи в клубе</p><h2>Живи в стиле<br>Бамбук.</h2></div><div class="contact-details"><p class="contact-address">Тольятти, Молодёжный бульвар, 6<br><span>цокольный этаж</span></p><a class="contact-phone" href="tel:+78482378537">8 (8482) 37-85-37</a><p>Часы работы уточняйте по телефону.</p><div class="contact-actions"><a class="button button-light" href="tel:+78482378537">Позвонить</a><a class="button button-outline" href="https://yandex.ru/maps/?text=%D0%A2%D0%BE%D0%BB%D1%8C%D1%8F%D1%82%D1%82%D0%B8%2C%20%D0%9C%D0%BE%D0%BB%D0%BE%D0%B4%D1%91%D0%B6%D0%BD%D1%8B%D0%B9%20%D0%B1%D1%83%D0%BB%D1%8C%D0%B2%D0%B0%D1%80%2C%206" target="_blank" rel="noopener noreferrer">Открыть карту</a></div></div></div></section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>Бильярдный клуб «Бамбук»</span>
+      <span>Тольятти, Молодёжный бульвар, 6</span>
+      <a href="tel:+78482378537">8 (8482) 37-85-37</a>
+    </div>
+  </footer>
+  <div class="page-transition" aria-hidden="true">
+    <div class="transition-title"><span>Б</span><span>А</span><span>М</span><span>Б</span><span>У</span><span>К</span></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

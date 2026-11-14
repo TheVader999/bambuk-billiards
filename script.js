@@ -7,6 +7,7 @@ const hero = document.querySelector('.hero');
 const lockedContent = document.querySelectorAll('.club-content, footer');
 let startedAt = null;
 let navigating = false;
+let returningToIntro = false;
 let selectedBall = null;
 
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
@@ -91,19 +92,44 @@ for (const ball of elements) {
 
 // Колесо не запускает действия и не прокручивает страницу, пока открыта заставка.
 window.addEventListener('wheel', (event) => {
-  if (document.documentElement.classList.contains('intro-locked') && !event.ctrlKey) {
+  if ((document.documentElement.classList.contains('intro-locked') || returningToIntro) && !event.ctrlKey) {
     event.preventDefault();
   }
 }, { passive: false });
 
-// При возвращении на заставку снова требуем выбрать шар.
-window.addEventListener('scroll', () => {
-  if (navigating || document.documentElement.classList.contains('intro-locked')) return;
-  if (hero.getBoundingClientRect().bottom > 0) {
+// Плавно возвращаемся на заставку, затем снова просим выбрать шар.
+function returnToIntro() {
+  returningToIntro = true;
+  const startPosition = window.scrollY;
+  const duration = reducedMotion.matches ? 0 : 750;
+  let startTime = null;
+
+  function finishReturn() {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     document.documentElement.classList.add('intro-locked');
     lockedContent.forEach((element) => { element.inert = true; });
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    returningToIntro = false;
   }
+
+  if (!duration) {
+    finishReturn();
+    return;
+  }
+
+  function moveToIntro(time) {
+    if (startTime === null) startTime = time;
+    const progress = Math.min((time - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    window.scrollTo({ top: startPosition * (1 - eased), behavior: 'instant' });
+    if (progress < 1) requestAnimationFrame(moveToIntro);
+    else finishReturn();
+  }
+  requestAnimationFrame(moveToIntro);
+}
+
+window.addEventListener('scroll', () => {
+  if (navigating || returningToIntro || document.documentElement.classList.contains('intro-locked')) return;
+  if (hero.getBoundingClientRect().bottom > 0) returnToIntro();
 }, { passive: true });
 
 // Заголовок снова выплывает при каждом возвращении к разделу.

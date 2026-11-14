@@ -14,7 +14,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #3c7652; outline-offs
 nav { display: flex; gap: 32px; }
 nav a, .phone { font: 12px Arial, sans-serif; text-decoration: none; }
 nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
-.hero { position: relative; min-height: 720px; height: 100svh; overflow: hidden; isolation: isolate; padding: 0; background: #d9e8c7; }
+.hero { position: relative; min-height: 100svh; height: 100svh; overflow: hidden; isolation: isolate; padding: 0; background: #d9e8c7; }
 .hero-grain { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 50% 44%, #e8f2dc 0%, #d9e8c7 60%, #c2d9b1 100%); }
 .hero-content { position: absolute; z-index: 1; top: 22%; left: 50%; width: 100%; text-align: center; transform: translateX(-50%); pointer-events: none; }
 .hero-kicker { margin: 0 0 12px; font: 12px Arial, sans-serif; letter-spacing: .07em; }
@@ -65,7 +65,7 @@ footer { padding: 30px 0; border-top: 1px solid #cbdac5; font-size: 14px; }
   .brand { font-size: 21px; }
   nav { position: absolute; top: 76px; left: 6%; right: 6%; justify-content: space-between; gap: 8px; }
   nav a, .phone { font-size: 11px; }
-  .hero { min-height: 650px; }
+  .hero { min-height: 100svh; }
   .hero-content { top: 25%; }
   .hero h1 { font-size: clamp(76px, 20vw, 140px); }
   .hero-kicker { font-size: 11px; }
@@ -355,7 +355,6 @@ html.intro-locked, html.intro-locked body { overflow: hidden; }
 .ball-position:nth-of-type(3) .ball-drift { --drift-top: -34px; --drift-bottom: 20px; animation-duration: 2s; animation-delay: -.8s; }
 .ball-position:nth-of-type(4) .ball-drift { --drift-top: -20px; --drift-bottom: 30px; animation-duration: 2.3s; animation-delay: -1.5s; }
 @keyframes ball-drift { from { transform: translateY(var(--drift-top, -10px)); } to { transform: translateY(var(--drift-bottom, 10px)); } }
-@media (hover: hover) { .ball-position:not(.is-centering):hover .ball-drift { scale: 1.08; } }
 .ball-position.is-centering .ball-drift { animation: none; scale: 1; }
 @media (prefers-reduced-motion: reduce) { .ball-drift { animation: none; } }
 

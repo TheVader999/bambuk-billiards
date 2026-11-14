@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="intro-locked">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,9 +56,9 @@
         <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — чёрный шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-black.png" alt="" draggable="false"></span></span></button>
         <button class="ball-position" data-ball type="button" aria-label="Узнать о клубе — белый шар"><span class="ball-motion"><span class="ball-drift"><img class="ball-photo" src="assets/ball-white.png" alt="" draggable="false"></span></span></button>
       </div>
-      <p class="hero-instruction">Нажмите на шар или прокрутите вниз</p>
+      <p class="hero-instruction">Нажмите на шар левой или правой кнопкой мыши</p>
     </section>
-    <div class="club-content">
+    <div class="club-content" inert>
       <section id="about" class="about-section"><nav class="club-nav" aria-label="Разделы сайта">
         <a href="#about">О клубе</a><a href="#games">Бильярд</a><a href="#photos">Фото</a><a href="#school">Школа</a><a href="#prices">Стоимость</a><a href="#contacts">Контакты</a><a class="nav-call" href="tel:+78482378537">Позвонить</a>
       </nav>
@@ -79,7 +79,7 @@
     </div>
   </main>
 
-  <footer>
+  <footer inert>
     <div class="container footer-content">
       <span>Бильярдный клуб «Бамбук»</span>
       <span>Тольятти, Молодёжный бульвар, 6</span>
@@ -89,7 +89,7 @@
   <div class="page-transition" aria-hidden="true">
     <div class="transition-title"><span>Б</span><span>А</span><span>М</span><span>Б</span><span>У</span><span>К</span></div>
   </div>
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>
 

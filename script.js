@@ -3,9 +3,14 @@ const elements = [...document.querySelectorAll('[data-ball]')];
 const destination = document.querySelector('#about');
 const curtain = document.querySelector('.page-transition');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const hero = document.querySelector('.hero');
+const lockedContent = document.querySelectorAll('.club-content, footer');
 let startedAt = null;
 let navigating = false;
 let selectedBall = null;
+
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo({ top: 0, behavior: 'instant' });
 
 function animate(time) {
   if (startedAt === null) startedAt = time;
@@ -32,6 +37,7 @@ function showInformation() {
   curtain.classList.add('is-leaving');
   window.setTimeout(() => {
     root.classList.remove('intro-locked');
+    lockedContent.forEach((element) => { element.inert = false; });
     // Скрываем заставку до сброса классов, чтобы она не анимировалась обратно вниз.
     curtain.hidden = true;
     curtain.classList.remove('is-visible', 'is-typing', 'is-leaving');
@@ -76,32 +82,29 @@ function goToClub(ball) {
 
 for (const ball of elements) {
   ball.addEventListener('pointerdown', (event) => {
-    if (event.button !== 0) return;
+    if (event.pointerType !== 'mouse' || !((event.button === 0 && event.buttons === 1) || (event.button === 2 && event.buttons === 2))) return;
     event.preventDefault();
     goToClub(ball);
   });
-  ball.addEventListener('keydown', (event) => {
-    if ((event.key === 'Enter' || event.key === ' ') && !event.repeat) {
-      event.preventDefault();
-      goToClub(ball);
-    }
-  });
+  ball.addEventListener('contextmenu', (event) => event.preventDefault());
 }
 
-// На заставке колесо запускает переход; дальше прокруткой управляет браузер.
-const hero = document.querySelector('.hero');
+// Колесо не запускает действия и не прокручивает страницу, пока открыта заставка.
 window.addEventListener('wheel', (event) => {
-  if (event.ctrlKey || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
-  if (navigating) {
+  if (document.documentElement.classList.contains('intro-locked') && !event.ctrlKey) {
     event.preventDefault();
-    return;
-  }
-  const heroBottom = hero.getBoundingClientRect().bottom;
-  if (event.deltaY > 0 && heroBottom > 0 && heroBottom <= window.innerHeight + 3) {
-    event.preventDefault();
-    goToClub(elements[0]);
   }
 }, { passive: false });
+
+// При возвращении на заставку снова требуем выбрать шар.
+window.addEventListener('scroll', () => {
+  if (navigating || document.documentElement.classList.contains('intro-locked')) return;
+  if (hero.getBoundingClientRect().bottom > 0) {
+    document.documentElement.classList.add('intro-locked');
+    lockedContent.forEach((element) => { element.inert = true; });
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+}, { passive: true });
 
 // Заголовок снова выплывает при каждом возвращении к разделу.
 if ('IntersectionObserver' in window && !reducedMotion.matches) {
